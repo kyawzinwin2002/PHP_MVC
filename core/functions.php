@@ -12,6 +12,19 @@ function url(string $path=null):string
     return $url;
 }
 
+function route(string $path=null,array $queries = null):string
+{
+    $url = url($path);
+    if(!is_null($queries)){
+        $url .= "?".http_build_query($queries);
+    }
+    return $url;
+}
+
+function redirect(string $url):void{
+    header("Location:".$url);
+}
+
 function dd($data,bool $type=false):void
 {
     echo "<pre style=' margin:10px; padding:20px; background-color:#1d1d1d; color:#cdcdcd; border-radius:10px; line-height:1.5rem;'>";

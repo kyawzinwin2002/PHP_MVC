@@ -7,10 +7,13 @@ require_once "../index.php";
 // } elseif ($_SERVER["REQUEST_URI"] === "/about-us") {
 //     require_once ViewDir . "/about.view.php";
 // }
+$uri = $_SERVER["REQUEST_URI"];
+$uriArr = parse_url($uri);
 
-switch ($_SERVER["REQUEST_URI"]) {
+$path = $uriArr["path"];
+switch ($path) {
     case "/":
-        view("home",["myName" => "Kyaw","age" => 21]);
+        view("home", ["myName" => "Kyaw", "age" => 21]);
         break;
 
     case "/about-us":
@@ -19,9 +22,28 @@ switch ($_SERVER["REQUEST_URI"]) {
 
     case "/list":
         controller("list@index");
-        break;        
+        break;
 
-    // for unkown route
+    case "/list-create":
+        controller("list@create");
+        break;
+
+    case "/list-store":
+        controller("list@store");
+        break;
+
+    case "/list-delete":
+        controller("list@delete");
+        break;
+
+    case "/list-edit":
+        controller("list@edit");
+        break;
+
+    case "/list-update":
+        controller("list@update");
+        break;
+        // for unknown route
     default:
         view("notfound");;
 }   
