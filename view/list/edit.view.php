@@ -7,10 +7,10 @@
 </div>
 
 
-
 <div class="border w-25 rounded p-5">
     <form action="<?= route("list-update") ?>" method="post">    
-    <input type="hidden" name="id" value="<?= $lists["id"] ?>">
+        <input type="hidden" name="_method" value="put">
+        <input type="hidden" name="id" value="<?= $lists["id"] ?>">
         <div class="">
             <label for="" class=" form-label">Name</label>
             <input type="text" name="name" value="<?= $lists["name"] ?>" class=" form-control">

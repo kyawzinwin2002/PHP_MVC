@@ -8,3 +8,4 @@
 </head>
 <body>
     <div class="m-5">
+    <?php require_once ViewDir."/template/session-message.php"; ?>
