@@ -50,4 +50,3 @@ require_once "../index.php";
 //         view("notfound");;
 // }   
 // dd($_SERVER);
-require_once RouterDir."/web.php";
